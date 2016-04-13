@@ -15,7 +15,7 @@ hs_err_pid*
 .settings/
 .classpath
 .project
-fireworks/WebContent/WEB-INF/classes/
-fireworks/WebContent/META-INF/
+WebRoot/WEB-INF/classes/
+WebRoot/META-INF/
 *.zip
 *.log
