@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns="http://java.sun.com/xml/ns/javaee" 
+	xmlns:jsp="http://java.sun.com/xml/ns/javaee/jsp"
+	xsi:schemaLocation="http://java.sun.com/xml/ns/javaee 
+	http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd"
+	id="WebApp_ID" version="2.5">
+	<display-name>fks</display-name>
+
+	<!-- apache CXF结合spring使用 -->
+	<!-- <servlet>
+		<description>Apache CXF Endpoint</description>
+		<display-name>cxf</display-name>
+		<servlet-name>cxf</servlet-name>
+		<servlet-class>org.apache.cxf.transport.servlet.CXFServlet</servlet-class>
+		<load-on-startup>1</load-on-startup>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>cxf</servlet-name>
+		<url-pattern>/services/*</url-pattern>
+	</servlet-mapping> -->
+	
+
+	<!-- 
+	<servlet>
+		<description>Apache CXF Without Spring</description>
+		<display-name>cxf</display-name>
+		<servlet-name>helloServlet</servlet-name>
+		<servlet-class>commons.servlet.HelloServlet</servlet-class>
+		<load-on-startup>1</load-on-startup>
+	</servlet>-->
+	<servlet>
+		<description></description>
+		<display-name>HttpServletInfo</display-name>
+		<servlet-name>HttpServletInfo</servlet-name>
+		<servlet-class>commons.servlet.HttpServletInfo</servlet-class>
+	</servlet>
+	<!-- Servlet Mapping映射 -->
+	<!-- <servlet-mapping>
+		<servlet-name>helloServlet</servlet-name>
+		<url-pattern>/services/*</url-pattern>
+	</servlet-mapping> -->
+	<servlet-mapping>
+		<servlet-name>HttpServletInfo</servlet-name>
+		<url-pattern>/HttpServletInfo</url-pattern>
+	</servlet-mapping>
+	<filter>
+		<filter-name>DruidWebStatFilter</filter-name>
+		<filter-class>com.alibaba.druid.support.http.WebStatFilter</filter-class>
+		<init-param>
+			<param-name>exclusions</param-name>
+			<param-value>*.js,*.gif,*.jpg,*.png,*.css,*.ico,/druid/*,/rs/*</param-value>
+		</init-param>
+	</filter>
+	<filter-mapping>
+		<filter-name>DruidWebStatFilter</filter-name>
+		<url-pattern>/*</url-pattern>
+	</filter-mapping>
+	
+	<filter>
+		<filter-name>nutz</filter-name>
+		<filter-class>commons.filter.AppFilter</filter-class>
+		<init-param>
+			<param-name>modules</param-name>
+			<param-value>modules.MainModule</param-value>
+		</init-param>
+	</filter>
+	<filter-mapping>
+		<filter-name>nutz</filter-name>
+		<url-pattern>*.nut</url-pattern>
+	</filter-mapping>
+	<servlet>
+		<servlet-name>DruidStatView</servlet-name>
+		<servlet-class>com.alibaba.druid.support.http.StatViewServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>DruidStatView</servlet-name>
+		<url-pattern>/druid/*</url-pattern>
+	</servlet-mapping>
+	<welcome-file-list>
+		<welcome-file>index.jsp</welcome-file>
+	</welcome-file-list>
+	<error-page>
+		<error-code>403</error-code>
+		<location>/WEB-INF/error/403.jsp</location>
+	</error-page>
+	<error-page>
+		<error-code>500</error-code>
+		<location>/WEB-INF/error/500.jsp</location>
+	</error-page>
+	<login-config>
+		<auth-method>BASIC</auth-method>
+	</login-config>
+	
+	<session-config>
+		<session-timeout>60</session-timeout>
+	</session-config>
+</web-app>

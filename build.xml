@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project basedir="." default="gen-ws">
+	<!-- 生成 wsdl 文件 -->
+	<target name="gen-ws">
+		<mkdir dir="${basedir}/wsdl" />
+		<exec executable="wsgen">
+			<arg line="-verbose -keep -cp ${basedir}/build/classes -r ${basedir}/wsdl -wsdl webservices.basic.HelloWorldServiceImpl -s ./src -d ./src
+                ">
+			</arg>
+		</exec>
+	</target>
+	<!--wsimport 客户端代码生产 -->
+	<target name="gen-ws-client">
+		<exec executable="wsimport">
+			<arg line="-verbose -d ./build/classes  -s ./test -p webservice.test.client http://127.0.0.1:8888/ws/hello?wsdl
+	                ">
+			</arg>
+		</exec>
+	</target>
+
+</project>

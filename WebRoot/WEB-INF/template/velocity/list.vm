@@ -1,0 +1,33 @@
+<h2>Velocity基本使用方法</h2>
+
+<hr/>
+if使用实例 <br />
+#if($obj)
+	<strong>Velocity!</strong>
+#end
+<hr/>
+
+else/if else使用实例<br />
+#if($obj.ok)
+	<strong>Velocity!</strong>
+#else
+	<strong>else freemarker!</strong>
+#end
+<hr/>
+
+foreach循环使用实例 "#[[#[[...]]#]]#"包含的內容將不會被VTL转换</br>
+<pre>
+#[[
+#foreach ($woogie in $boogie)
+  nothing will happen to $woogie
+#end
+]]#
+</pre>
+
+#foreach($order in $obj)
+
+<tr>
+	<td>$foreach.count</td><td>$order</td>
+</tr>
+
+#end

@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<link href="http://cdn.bootcss.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet">
+	<link href="http://cdn.bootcss.com/bootstrap-table/1.10.1/bootstrap-table.css" rel="stylesheet">
+</head>
+<body>
+$request
+<table id="table"
+	data-toggle="table"
+    data-height="460"
+  	data-pagination="true"
+	data-page-size="5"
+    data-page-list="[1,2,3]"
+    data-pagination-first-text="首页"
+    data-pagination-pre-text="前一页"
+    data-pagination-next-text="后一页"
+    data-pagination-last-text="最后一页"></table>
+
+
+<!-- js脚本引入  -->
+<script src="http://cdn.bootcss.com/jquery/2.2.1/jquery.min.js"></script>
+<script src="http://cdn.bootcss.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+<script src="http://cdn.bootcss.com/bootstrap-table/1.10.1/bootstrap-table.js"></script>
+<script src="http://cdn.bootcss.com/bootstrap-table/1.10.1/locale/bootstrap-table-zh-CN.js"></script>
+<script type="text/javascript">
+	$('#table').bootstrapTable({
+	url:"data1.json",
+    columns: [{
+        field: 'id',
+        title: '编号'
+    }, {
+        field: 'name',
+        title: '名称'
+    }, {
+        field: 'price',
+        title: '价格'
+    }],
+    
+});
+
+</script>
+
+
+</body>
+
+</html>

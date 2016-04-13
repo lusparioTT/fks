@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<xs:schema version="1.0" targetNamespace="http://basic.webservices/" xmlns:tns="http://basic.webservices/" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+
+  <xs:element name="getContent" type="tns:getContent"/>
+
+  <xs:element name="getContentResponse" type="tns:getContentResponse"/>
+
+  <xs:complexType name="getContent">
+    <xs:sequence>
+      <xs:element name="arg0" type="xs:string" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="getContentResponse">
+    <xs:sequence>
+      <xs:element name="return" type="xs:string" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+</xs:schema>
+

@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<xs:schema version="1.0" targetNamespace="http://basic.webservices/" xmlns:tns="http://basic.webservices/" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+
+  <xs:element name="multiply" type="tns:multiply"/>
+
+  <xs:element name="multiplyResponse" type="tns:multiplyResponse"/>
+
+  <xs:element name="substract" type="tns:substract"/>
+
+  <xs:element name="substractResponse" type="tns:substractResponse"/>
+
+  <xs:complexType name="substract">
+    <xs:sequence>
+      <xs:element name="arg0" type="xs:int"/>
+      <xs:element name="arg1" type="xs:int"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="substractResponse">
+    <xs:sequence>
+      <xs:element name="return" type="xs:int"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="multiply">
+    <xs:sequence>
+      <xs:element name="arg0" type="xs:int"/>
+      <xs:element name="arg1" type="xs:int"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="multiplyResponse">
+    <xs:sequence>
+      <xs:element name="return" type="xs:int"/>
+    </xs:sequence>
+  </xs:complexType>
+</xs:schema>
+

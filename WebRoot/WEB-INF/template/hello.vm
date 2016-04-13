@@ -1,0 +1,19 @@
+##set指令设置变量的值
+#set($WebRoot = $obj.request.getServletContext().getContextPath())
+#set($br = "<br />")
+#set($hr = "<hr />")
+ 
+#PAGE_TOP
+$hr
+ 
+ 
+hello $obj.date
+ 
+$hr
+项目的根目录：$WebRoot
+$hr
+velocity toolbox contextPaht: $link.request
+
+
+$hr
+#PAGE_BOTTOM

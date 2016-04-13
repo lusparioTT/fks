@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<project name="Ant Properties Echo" default="echo">
+	
+	<target name="echo">
+		<echo message="${ant.version}"></echo>
+		<echo message="${basedir}"></echo>
+		<echo message="${ant.file}"></echo>
+		<echo message="${ant.java.version}"></echo>
+		<echo message="${ant.home}"/>
+		<echo message="${user.home}"></echo>
+		<echo message="${java.home}"></echo>
+		<echo message="${project.lib}"></echo>
+	</target>
+	<!--
+	<target name="echoXml">
+		<echoproperties format="xml" destfile="current-properties.xml"></echoproperties>
+	</target>-->
+	<!--
+	<target name="init">
+		<mkdir dir="${dist.dir}"/>
+	</target>-->
+</project>
