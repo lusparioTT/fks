@@ -1,49 +1,52 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-	xmlns="http://java.sun.com/xml/ns/javaee" 
-	xmlns:jsp="http://java.sun.com/xml/ns/javaee/jsp"
+	xmlns="http://java.sun.com/xml/ns/javaee" xmlns:jsp="http://java.sun.com/xml/ns/javaee/jsp"
 	xsi:schemaLocation="http://java.sun.com/xml/ns/javaee 
 	http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd"
 	id="WebApp_ID" version="2.5">
 	<display-name>fks</display-name>
 
 	<!-- apache CXF结合spring使用 -->
-	<!-- <servlet>
-		<description>Apache CXF Endpoint</description>
-		<display-name>cxf</display-name>
-		<servlet-name>cxf</servlet-name>
-		<servlet-class>org.apache.cxf.transport.servlet.CXFServlet</servlet-class>
-		<load-on-startup>1</load-on-startup>
-	</servlet>
-	<servlet-mapping>
-		<servlet-name>cxf</servlet-name>
-		<url-pattern>/services/*</url-pattern>
-	</servlet-mapping> -->
-	
+	<!-- <servlet> <description>Apache CXF Endpoint</description> <display-name>cxf</display-name> 
+		<servlet-name>cxf</servlet-name> <servlet-class>org.apache.cxf.transport.servlet.CXFServlet</servlet-class> 
+		<load-on-startup>1</load-on-startup> </servlet> <servlet-mapping> <servlet-name>cxf</servlet-name> 
+		<url-pattern>/services/*</url-pattern> </servlet-mapping> -->
 
+	<!-- <servlet> <description>Apache CXF Without Spring</description> <display-name>cxf</display-name> 
+		<servlet-name>helloServlet</servlet-name> <servlet-class>commons.servlet.HelloServlet</servlet-class> 
+		<load-on-startup>1</load-on-startup> </servlet> -->
+	<!-- Servlet Mapping映射 -->
+	<!-- <servlet-mapping> <servlet-name>helloServlet</servlet-name> <url-pattern>/services/*</url-pattern> 
+		</servlet-mapping> -->
+		
+	<!-- [log4j初始化] -->
 	<!-- 
 	<servlet>
-		<description>Apache CXF Without Spring</description>
-		<display-name>cxf</display-name>
-		<servlet-name>helloServlet</servlet-name>
-		<servlet-class>commons.servlet.HelloServlet</servlet-class>
+		<servlet-name>log4j-init</servlet-name>
+		<servlet-class>cn.timgise.servlet.Log4jInitServlet</servlet-class>
+
+		<init-param>
+			<param-name>log4j-init-file</param-name>
+			<param-value>WEB-INF/classes/log4j.lcf</param-value>
+		</init-param>
+
 		<load-on-startup>1</load-on-startup>
-	</servlet>-->
+	</servlet>
+	 -->
+
+	<!-- ================================================================= -->
+
 	<servlet>
 		<description></description>
 		<display-name>HttpServletInfo</display-name>
 		<servlet-name>HttpServletInfo</servlet-name>
 		<servlet-class>commons.servlet.HttpServletInfo</servlet-class>
 	</servlet>
-	<!-- Servlet Mapping映射 -->
-	<!-- <servlet-mapping>
-		<servlet-name>helloServlet</servlet-name>
-		<url-pattern>/services/*</url-pattern>
-	</servlet-mapping> -->
 	<servlet-mapping>
 		<servlet-name>HttpServletInfo</servlet-name>
 		<url-pattern>/HttpServletInfo</url-pattern>
 	</servlet-mapping>
+	<!-- [] -->
 	<filter>
 		<filter-name>DruidWebStatFilter</filter-name>
 		<filter-class>com.alibaba.druid.support.http.WebStatFilter</filter-class>
@@ -56,7 +59,7 @@
 		<filter-name>DruidWebStatFilter</filter-name>
 		<url-pattern>/*</url-pattern>
 	</filter-mapping>
-	
+	<!-- [nutz mvc 配置] -->
 	<filter>
 		<filter-name>nutz</filter-name>
 		<filter-class>commons.filter.AppFilter</filter-class>
@@ -69,6 +72,7 @@
 		<filter-name>nutz</filter-name>
 		<url-pattern>*.nut</url-pattern>
 	</filter-mapping>
+	<!-- [Druid数据源数据监控] -->
 	<servlet>
 		<servlet-name>DruidStatView</servlet-name>
 		<servlet-class>com.alibaba.druid.support.http.StatViewServlet</servlet-class>
@@ -77,9 +81,12 @@
 		<servlet-name>DruidStatView</servlet-name>
 		<url-pattern>/druid/*</url-pattern>
 	</servlet-mapping>
+	
+	<!-- [欢迎页面] -->
 	<welcome-file-list>
 		<welcome-file>index.jsp</welcome-file>
 	</welcome-file-list>
+	<!-- [异常页面] -->
 	<error-page>
 		<error-code>403</error-code>
 		<location>/WEB-INF/error/403.jsp</location>
@@ -91,7 +98,7 @@
 	<login-config>
 		<auth-method>BASIC</auth-method>
 	</login-config>
-	
+	<!-- [回话过期] -->
 	<session-config>
 		<session-timeout>60</session-timeout>
 	</session-config>
